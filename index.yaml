@@ -9,6 +9,6 @@ entries:
     name: web-site
     type: application
     urls:
-    - https://rahul-kj.github.io/web-site/web-site-1.0.0.tgz
+    - https://rahul-kj.github.io/charts/web-site-1.0.0.tgz
     version: 1.0.0
 generated: "2026-02-22T23:08:25.707893-06:00"

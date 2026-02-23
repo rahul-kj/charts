@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "web-sites.name" . }}
+  name: {{ include "web-site.name" . }}
   labels:
-    {{- include "web-sites.labels" . | nindent 4 }}
+    {{- include "web-site.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "web-sites.selectorLabels" . | nindent 6 }}
+      {{- include "web-site.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "web-sites.labels" . | nindent 8 }}
+        {{- include "web-site.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -29,7 +29,7 @@ spec:
         - name: {{ . }}
         {{- end }}
       {{- end }}
-      serviceAccountName: {{ include "web-sites.serviceAccountName" . }}
+      serviceAccountName: {{ include "web-site.serviceAccountName" . }}
       {{- with .Values.podSecurityContext }}
       securityContext:
         {{- toYaml . | nindent 8 }}

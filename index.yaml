@@ -1,14 +1,14 @@
 apiVersion: v1
 entries:
-  web-sites:
+  web-site:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-02-22T22:57:52.389744-06:00"
+    created: "2026-02-22T23:08:25.708318-06:00"
     description: A Helm chart for Kubernetes
-    digest: dca56070cbff619c35d602e996f664e89c145b5fdc83edf3b0b05bf4111a3e49
-    name: web-sites
+    digest: 0c99d7a48639847015efd2553f726824d13673596a4b3cd1f1965846a45a5917
+    name: web-site
     type: application
     urls:
-    - https://rahul-kj.github.io/web-site/web-sites-1.0.0.tgz
+    - https://rahul-kj.github.io/web-site/web-site-1.0.0.tgz
     version: 1.0.0
-generated: "2026-02-22T22:57:52.388735-06:00"
+generated: "2026-02-22T23:08:25.707893-06:00"

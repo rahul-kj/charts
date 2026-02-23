@@ -1,11 +1,11 @@
 ---
-# Source: web-sites/templates/service.yaml
+# Source: web-site/templates/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
   name: cloudlab
   labels:
-    helm.sh/chart: web-sites-1.0.0
+    helm.sh/chart: web-site-1.0.0
     app.kubernetes.io/name: cloudlab
     app.kubernetes.io/version: "1.0.0"
     app.kubernetes.io/managed-by: Helm
@@ -19,13 +19,13 @@ spec:
   selector:
     app.kubernetes.io/name: cloudlab
 ---
-# Source: web-sites/templates/deployment.yaml
+# Source: web-site/templates/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cloudlab
   labels:
-    helm.sh/chart: web-sites-1.0.0
+    helm.sh/chart: web-site-1.0.0
     app.kubernetes.io/name: cloudlab
     app.kubernetes.io/version: "1.0.0"
     app.kubernetes.io/managed-by: Helm
@@ -36,7 +36,7 @@ spec:
   template:
     metadata:
       labels:
-        helm.sh/chart: web-sites-1.0.0
+        helm.sh/chart: web-site-1.0.0
         app.kubernetes.io/name: cloudlab
         app.kubernetes.io/version: "1.0.0"
         app.kubernetes.io/managed-by: Helm
@@ -45,7 +45,7 @@ spec:
         - name: harbor-registry-secret
       serviceAccountName: default
       containers:
-        - name: web-sites
+        - name: web-site
           image: "harbor.cloudlab.rocks/public/cloudlab:latest"
           imagePullPolicy: Always
           ports:
@@ -61,13 +61,13 @@ spec:
               path: /
               port: http
 ---
-# Source: web-sites/templates/hpa.yaml
+# Source: web-site/templates/hpa.yaml
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: cloudlab
   labels:
-    helm.sh/chart: web-sites-1.0.0
+    helm.sh/chart: web-site-1.0.0
     app.kubernetes.io/name: cloudlab
     app.kubernetes.io/version: "1.0.0"
     app.kubernetes.io/managed-by: Helm
@@ -86,13 +86,13 @@ spec:
           type: Utilization
           averageUtilization: 80
 ---
-# Source: web-sites/templates/ingressroute.yaml
+# Source: web-site/templates/ingressroute.yaml
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: cloudlab
   labels:
-    helm.sh/chart: web-sites-1.0.0
+    helm.sh/chart: web-site-1.0.0
     app.kubernetes.io/name: cloudlab
     app.kubernetes.io/version: "1.0.0"
     app.kubernetes.io/managed-by: Helm

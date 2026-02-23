@@ -2,9 +2,9 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: {{ include "web-sites.name" . }}
+  name: {{ include "web-site.name" . }}
   labels:
-    {{- include "web-sites.labels" . | nindent 4 }}
+    {{- include "web-site.labels" . | nindent 4 }}
   {{- with .Values.ingressroute.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
